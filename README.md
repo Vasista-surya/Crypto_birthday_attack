@@ -44,9 +44,28 @@ The **Birthday Attack Lab** is a professional educational web application that d
 
 ## Quick Start
 
+### 🚀 Deploy to Vercel (Frontend) + Railway/Render (Backend)
+
+**Production in 5 minutes:**
+
+```bash
+# 1. Backend → Railway (recommended for SSE)
+cd backend
+railway login && railway init && railway up
+# Get URL: https://your-backend.railway.app
+
+# 2. Frontend → Vercel
+cd ../frontend
+vercel --prod
+# In Vercel Dashboard → Settings → Environment Variables:
+# VITE_API_BASE = https://your-backend.railway.app/api
+```
+
+> ⚠️ **Backend cannot run on Vercel** — SSE + in-memory state needs persistent server. Use Railway ($5/mo) or Render (free tier).
+
 ### Prerequisites
-- Docker & Docker Compose
-- Or: Python 3.11+, Node 20+
+- Docker & Docker Compose (for local full stack)
+- Or: Python 3.11+, Node 20+ (for manual)
 
 ### Local Development
 

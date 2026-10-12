@@ -2,6 +2,32 @@
 
 This guide covers deploying the Birthday Attack Lab to various platforms.
 
+## 🚀 Vercel (Frontend) + Render/Railway (Backend) — Recommended
+
+**Fastest path to production**: Frontend on Vercel (free), Backend on Railway ($5/mo) or Render (free tier).
+
+> ⚠️ **Backend cannot run on Vercel** — FastAPI + SSE requires long-lived connections and in-memory state. Deploy backend separately.
+
+### Quick Vercel Deploy
+
+1. **Backend First** → Deploy to [Railway](#railway-backend) or [Render](#render-backend)
+2. **Frontend to Vercel** → See [docs/VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)
+
+```bash
+# 1. Backend (Railway example)
+cd backend
+railway login && railway init && railway up
+
+# 2. Frontend
+cd frontend
+vercel --prod
+# Set VITE_API_BASE=https://your-backend.railway.app/api in Vercel dashboard
+```
+
+See [docs/VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) for step-by-step.
+
+---
+
 ## Quick Start (Local Development)
 
 ```bash
